@@ -1,6 +1,6 @@
 from flask import Flask
 from service import playlistService
-from format import get
+import jsonFormatter
 
 app = Flask(__name__)
 
@@ -10,6 +10,6 @@ def hello_world(message):
     
     response = playlistService.sendRequest(message)
 
-    return get(response.json())
+    return jsonFormatter.get(response)
 
 
