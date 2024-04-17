@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/api/get/<message>')
 def hello_world(message):
-    return message
-    return 'Hello, World!'
+    response = playlistService.sendRequest(message)
+    return response
 
 
