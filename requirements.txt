@@ -1,3 +1,4 @@
 Flask
 Gunicorn
 openai==0.28
+flask-cors
