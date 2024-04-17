@@ -10,8 +10,8 @@ def extract_ids(text):
 
 def get(gptResponse, client_id="24e3d58f0a374026a241f5b4647ecbe7", client_secret="59d089b30e32472e9bafe784da44fe15"):
     spotify = Spotify(client_id, client_secret)
-    
-    while True:
+    exists = False
+    while not exists:
 
         res = gptResponse["choices"][0]["message"]["content"]
         ids = extract_ids(res)
@@ -22,6 +22,7 @@ def get(gptResponse, client_id="24e3d58f0a374026a241f5b4647ecbe7", client_secret
         for id in ids:
             print(id)
             if spotify.playlist_exists(id):
+                exists = True
                 return {
                     'playlist_id': id,
                 }
