@@ -31,30 +31,30 @@ CORS(app)
 
 @app.route('/api/get/playlist/<message>')
 def playlist(message):
-    message = message.replace('%20', ' ');
+    message = message.replace('%20', ' ')
     fetcher = PlaylistFetcher(system_attributes)
     return fetcher.get(message)
 
 @app.route('/api/get/quote/<message>')
 def quote(message):
-    message = message.replace('%20', ' ');
+    message = message.replace('%20', ' ')
     fetcher = QuoteFetcher()
     return fetcher.get(message)
 
 @app.route('/api/get/books/<message>')
 def books(message):
-    message = message.replace('%20', ' ');
+    message = message.replace('%20', ' ')
     fetcher = BookFetcher()
     return fetcher.get(message)
 
 @app.route('/api/get/videos/<message>')
 def videos(message):
-    message = message.replace('%20', ' ');
+    message = message.replace('%20', ' ')
     fetcher = VideoFetcher()
     return fetcher.get(message)
 
 @app.route('/api/get/gradient/<message>')
 def gradient(message):
-    message = message.replace('%20', ' ');
+    message = message.replace('%20', ' ')
     fetcher = GradientFetcher()
     return fetcher.get(message)
