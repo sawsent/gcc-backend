@@ -4,6 +4,7 @@ from playlistFetcher import PlaylistFetcher
 from quoteFetcher import QuoteFetcher
 from bookFetcher import BookFetcher
 from videoFetcher import VideoFetcher
+from gradientFetcher import GradientFetcher
 import os
 
 system_attributes = {
@@ -50,4 +51,10 @@ def books(message):
 def videos(message):
     message = message.replace('%20', ' ');
     fetcher = VideoFetcher()
+    return fetcher.get(message)
+
+@app.route('/api/get/videos/<message>')
+def videos(message):
+    message = message.replace('%20', ' ');
+    fetcher = GradientFetcher()
     return fetcher.get(message)
