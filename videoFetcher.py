@@ -52,3 +52,4 @@ class VideoFetcher:
         curated = self.find_content_in_brackets(nelson_response)
         videos = self.fetchFromGAPI(curated)
         return videos
+    

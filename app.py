@@ -41,7 +41,13 @@ def quote(message):
     return fetcher.get(message)
 
 @app.route('/api/get/books/<message>')
-def book(message):
+def books(message):
     message = message.replace('%20', ' ');
     fetcher = BookFetcher()
+    return fetcher.get(message)
+
+@app.route('/api/get/videos/<message>')
+def videos(message):
+    message = message.replace('%20', ' ');
+    fetcher = VideoFetcher()
     return fetcher.get(message)
