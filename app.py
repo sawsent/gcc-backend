@@ -1,6 +1,9 @@
 from flask import Flask
 from flask_cors import CORS
-from fetcher import Fetcher
+from playlistFetcher import PlaylistFetcher
+from quoteFetcher import QuoteFetcher
+from bookFetcher import BookFetcher
+from videoFetcher import VideoFetcher
 import os
 
 system_attributes = {
@@ -25,12 +28,20 @@ system_attributes = {
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/api/get/<message>')
-def hello_world(message):
+@app.route('/api/get/playlist/<message>')
+def playlist(message):
     message = message.replace('%20', ' ');
-    
-    message = message.replace('%20', ' ');
-    
-    fetcher = Fetcher(system=system_attributes)
+    fetcher = PlaylistFetcher(system_attributes)
+    return fetcher.get(message)
 
+@app.route('/api/get/quote/<message>')
+def quote(message):
+    message = message.replace('%20', ' ');
+    fetcher = QuoteFetcher()
+    return fetcher.get(message)
+
+@app.route('/api/get/books/<message>')
+def book(message):
+    message = message.replace('%20', ' ');
+    fetcher = BookFetcher()
     return fetcher.get(message)

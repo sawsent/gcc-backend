@@ -3,7 +3,7 @@ import datetime
 import openai
 import re
 
-class Fetcher:
+class PlaylistFetcher:
     def __init__(self, system):
         self.system = system
         self.spotify_auth_details = system['api_integration']['spotify']
