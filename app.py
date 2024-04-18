@@ -53,8 +53,8 @@ def videos(message):
     fetcher = VideoFetcher()
     return fetcher.get(message)
 
-@app.route('/api/get/videos/<message>')
-def videos(message):
+@app.route('/api/get/gradient/<message>')
+def gradient(message):
     message = message.replace('%20', ' ');
     fetcher = GradientFetcher()
     return fetcher.get(message)
