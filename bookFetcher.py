@@ -42,9 +42,9 @@ class BookFetcher:
             info = item['volumeInfo']
             title = info.get('title', 'No title available')
             authors = info.get('authors', ['Unknown Author'])
-            cover_image = info.get('imageLinks', {}).get('thumbnail', 'No cover image available')
+            cover_image = info.get('imageLinks', {}).get('thumbnail', '/resources/booknotfound.jpg')
             
-            results.append({"Title": title, "Author": ", ".join(authors), "Cover Image": cover_image})
+            results.append({"title": title, "author": ", ".join(authors), "cover": cover_image})
 
         return results
     
